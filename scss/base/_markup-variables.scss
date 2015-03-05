@@ -1,0 +1,25 @@
+// brand colors (http://name-of-color.com/)
+$black: #000;
+$white: #fff;
+$mountain-mist: #999;
+$half-baked: #86c6dc;
+$desert-storm: #f8f8f8;
+
+
+// base variables
+$base-text-color: $white;
+$base-background-color: $white;
+$base-link-color: $half-baked;
+$base-form-text-color: $black;
+$base-form-placeholder-color: $mountain-mist;
+$base-input-border-color: $mountain-mist;
+
+$base-font-size: 20px;
+$base-line-height:25px;
+$base-font-family: 'Arial', 'Helvetica', sans-serif;
+$base-text-interval: ($base-font-size * $base-line-height);
+
+$base-min-width: 320px;
+
+// @font-face-serif: 
+// @font-face-sans-serif: 

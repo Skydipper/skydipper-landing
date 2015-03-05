@@ -1,0 +1,690 @@
+$mq-breakpoints: (
+    // Base device classes
+    mobile:      320px,
+    tablet:      640px,
+    desktop:    1024px,
+    widescreen: 1200px,
+    tvscreen:   1920px,
+
+    // Tweakpoints
+    mobileLandscape: 480px);
+
+// Show active breakpoint in top right corner of viewport
+// $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvscreen);
+
+@import "base/markup-variables";
+@import "base/markup-mixins";
+@import "base/base-reset";
+@import "mq";
+
+#wrapper{
+	overflow:hidden;	
+}
+#header{
+	overflow:hidden;
+	position:relative;
+	.slideshow {
+		position: relative;
+		.slide {
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			right:0;
+			img{
+				@include img-resize;
+				@include breakpoint($big-mobile){
+					height:530px;	
+				}
+				@include breakpoint($mobile){
+					height:auto;	
+				}	
+			}
+			&.active {
+				z-index: 2;
+			}
+		}
+		.caption{
+			position:absolute;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;	
+		}
+		.caption-holder{
+			@extend %clearfix;
+			text-shadow: 2px 1px 4px #000;
+			margin:31.8% auto 0;
+			width:80%;
+			text-align:center;
+			line-height:46px;
+			font:{
+				size:43px;
+			}
+			@include breakpoint($tablet){
+				margin:27.8% auto 0;	
+			}
+			@include breakpoint($big-mobile){
+				margin:35.8% auto 0;	
+			}
+			@include breakpoint($mobile){
+				width:100%;
+				padding:0 10px;
+				line-height:23px;
+				font:{
+					size:20px;
+				}	
+			}
+			p{
+				margin:0;	
+			}
+		}
+		.pagination{
+			@extend %listreset;
+			position:absolute;
+			right:52px;
+			bottom:19px;
+			z-index:2;
+			@include breakpoint($big-mobile){
+				bottom:25px;
+				right:34px;	
+			}
+			@include breakpoint($mobile){
+				right:10px;	
+			}
+			li{
+				display:inline-block;
+				vertical-align:middle;
+				a{
+					display:block;
+					position:relative;
+					@include hide-text;
+					width:16px;
+					height:16px;
+					margin:8px;
+					border-radius:100%;
+					background:$white;
+					&:hover{
+						margin:0;
+						width:32px;
+						height:32px;
+					}
+				}
+				&.active a{
+					margin:0;
+					width:32px;
+					height:32px;
+				}
+			}	
+		}
+	}	
+}
+.logo-area{
+	position:absolute;
+	top:27px;
+	left:0;
+	right:0;
+	z-index:4;
+	@include breakpoint($mobile){
+		top:10px;	
+	}	
+}
+.logo{
+	overflow:hidden;
+	max-width:247px;
+	margin:0 auto;
+	a img{
+		@include img-resize;	
+	}	
+}
+.intro-block{
+	overflow:hidden;
+	background:$desert-storm;	
+}
+.intro-holder{
+	overflow:hidden;
+	max-width:1024px;
+	margin:0 auto;
+	padding:55px 68px 0 74px;
+	@include breakpoint($tablet){
+		padding:32px 18px 0;
+	}
+	@include breakpoint($mobile){
+		padding:30px 10px 0;	
+	}
+	.slideshow{
+		position:relative;
+		margin:0 0 20px;
+		@include breakpoint($tablet){
+			margin:0 0 32px;	
+		}
+		.slide {
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			right:0;
+			img{
+				@include img-resize;	
+			}
+			&.active {
+				z-index: 2;
+			}
+		}
+		.head{
+			@extend %clearfix;
+			text-align:center;
+			color:#5c5c5c;
+			padding:0 0 16px;
+			letter-spacing:-1px;
+			line-height:46px;
+			font:{
+				size:43px;
+				weight:normal;	
+			}
+			@include breakpoint($tablet){
+				line-height:41px;
+				font:{
+					size:38px;
+					weight:normal;	
+				}
+			}
+			@include breakpoint($mobile){
+				line-height:23px;
+				font:{
+					size:20px;
+					weight:normal;	
+				}	
+			}
+			.title{
+				display:block;
+				margin:0 0 7px;
+				line-height:30px;
+				font:{
+					size:28px;
+					weight:normal;	
+				}
+				@include breakpoint($tablet){
+					margin:0 0 1px;	
+				}
+				@include breakpoint($mobile){
+					line-height:20px;
+					font:{
+						size:18px;
+						weight:normal;	
+					}	
+				}	
+			}
+			p{
+				margin:0;	
+			}
+		}
+		.pagination{
+			@extend %listreset;
+			text-align:center;
+			@include breakpoint($mobile){
+				top:60px;	
+			}
+			li{
+				display:inline-block;
+				vertical-align:middle;
+				a{
+					display:block;
+					position:relative;
+					@include hide-text;
+					width:10px;
+					height:10px;
+					border:1px solid #e0e0e0;
+					margin:6px;
+					border-radius:100%;
+					background:$white;
+					&:hover{
+						margin:0;
+						width:22px;
+						height:22px;
+						box-shadow: 1px 1px 8px #e2e2e2;
+					}
+				}
+				&.active a{
+					margin:0;
+					width:22px;
+					height:22px;
+					box-shadow: 1px 1px 8px #e2e2e2;
+				}
+			}	
+		}
+	}
+	.images-block{
+		@extend %clearfix;
+		position:relative;
+		max-width:882px;
+		margin:0 auto;
+		.tablet-img{
+			float:left;
+			margin:0 0 -44px 22%;
+			width:78.8%;
+			img{
+				@include img-resize;	
+			}
+			@include breakpoint($big-mobile){
+				width:76.8%;
+				margin:0 0 -38px 23%;	
+			}	
+		}
+		.mobile-img{
+			position:absolute;
+			bottom:0;
+			left:0;
+			width:26%;
+			img{
+				@include img-resize;	
+			}	
+			@include breakpoint($big-mobile){
+				bottom: -7px;
+				left: 15px;
+				position: absolute;
+				width: 24.5%;
+			}
+		}	
+	}	
+}
+.detail-block{
+	overflow:hidden;
+	background:#75bad4;	
+}
+.contact-form{
+	@extend %clearfix;
+	margin:0 auto;
+	max-width:726px;
+	padding:66px 0 64px;
+	@include breakpoint($tablet){
+		padding:40px 10px 28px;
+		max-width:100%;	
+	}
+	@include breakpoint($big-mobile){
+		padding:40px 51px 28px 45px;
+		text-align:center;	
+	}
+	@include breakpoint($mobile){
+		padding:20px 10px 24px;
+	}
+	.heading{
+		overflow:hidden;
+		margin:0 0 24px;
+		text-align:center;
+		@include breakpoint($mobile){
+			line-height:17px;
+			font:{
+				size:14px;
+			}	
+		}
+		.title{
+			display:block;
+			text-transform:uppercase;
+			margin:0 0 6px;
+			line-height:30px;
+			font:{
+				size:28px;
+				weight:normal;
+			}
+			@include breakpoint($big-mobile){
+				margin:0 0 13px;	
+			}
+			@include breakpoint($mobile){
+				line-height:20px;
+				font:{
+					size:17px;
+				}	
+			}	
+		}
+		p{
+			margin:0;
+		}	
+	}
+	.row{
+		@extend %clearfix;
+		@include breakpoint($mobile){
+			text-align:center;	
+		}	
+	}
+	input[type="email"],
+	input[type="text"]{
+		float:left;
+		background:$white;
+		width:35.3%;
+		border-radius:4px;
+		border:none;
+		margin:0;
+		padding:8px 20px;
+		color:#86c6dc;
+		line-height:21px;
+		font:{
+			size:18px;	
+		}
+		@include breakpoint($big-mobile){
+			float:none;
+			width:100%;
+			margin:0 0 13px;	
+		}	
+	}
+	input[type="email"]{
+		margin:0 0 0 2.4%;
+		@include breakpoint($tablet){
+			margin:0 0 0 0.5%;	
+		}
+		@include breakpoint($big-mobile){
+			margin:0 0 33px;	
+		}
+	}
+	input[type="submit"]{
+		float:left;
+		background:#0a4359;
+		border-radius:20px;
+		border:none;
+		margin:0 0 0 2.7%;
+		padding:11px 33px 9px;
+		color:$white;
+		text-transform:uppercase;
+		line-height:18px;
+		font:{
+			size:16px;	
+		}
+		&:hover{
+			opacity:0.9;	
+		}
+		@include breakpoint($tablet){
+			margin:0 0 0 0.5%;
+			padding:11px 25px 9px;
+		}
+		@include breakpoint($big-mobile){
+			float:none;
+			display:inline-block;
+			vertical-align:top;
+			text-align:center;
+			overflow:hidden;
+			padding:11px 34px 9px;	
+		}	
+	}
+}
+.research-block{
+	overflow:hidden;
+	position:relative;
+	text-align:center;
+	img{
+		@include img-resize;
+		@include breakpoint($big-mobile){
+			height:608px;	
+		}
+		@include breakpoint($mobile){
+			height:auto;	
+		}
+	}
+	.caption{
+		position:absolute;
+		top:0;
+		right:0;
+		left:0;
+		bottom:0;
+		z-index:3;
+	}
+	.holder{
+		position:absolute;
+		bottom:52px;
+		left:0;
+		right:0;
+		@include breakpoint($tablet){
+			bottom:24px;	
+		}
+		@include breakpoint($mobile){
+			bottom:20px;	
+		}
+	}
+	.slideshow {
+		position: relative;
+		.slide {
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			right:0;
+			&.active {
+				z-index: 2;
+			}
+		}
+	}
+	.head{
+		overflow:hidden;
+		padding:50px 10px 0;
+		max-width:805px;
+		margin:0 auto;
+		@include breakpoint($mobile){
+			padding:10px 10px 0;
+			line-height:15px;
+			font:{
+				size:12px;	
+			}	
+		}
+		@include breakpoint($tablet){
+			padding:39px 10px 0;	
+		}
+		span,
+		strong{
+			display:block;
+			line-height:44px;
+			font:{
+				size:43px;
+				weight:normal;
+			}
+			@include breakpoint($mobile){
+				line-height:24px;
+				font:{
+					size:20px;
+					weight:normal;
+				}	
+			}	
+		}
+		span{
+			color:$half-baked;
+			margin:0 0 10px;	
+		}
+		p{
+			margin:0;
+		}	
+	}
+	em{
+		display:block;
+		max-width:800px;
+		text-shadow: 2px 1px 4px #000;
+		margin:0 auto;
+		padding:0 10px 10px;
+		line-height:29px;
+		font:{
+			size:28px;
+			style:normal;	
+		}
+		@include breakpoint($mobile){
+			line-height:15px;
+			font:{
+				size:12px;	
+			}	
+		}
+	}
+	.slideshow.not-enough-slides .btn-prev,
+	.slideshow.not-enough-slides .btn-next {
+		visibility: hidden;
+	}
+	.pagination{
+		@extend %listreset;
+		text-align:center;
+		position:relative;
+		z-index:4;
+		li{
+			display:inline-block;
+			vertical-align:middle;
+			a{
+				display:block;
+				position:relative;
+				@include hide-text;
+				width:10px;
+				height:10px;
+				border:1px solid #e0e0e0;
+				margin:6px;
+				border-radius:100%;
+				background:$white;
+				&:hover{
+					margin:0;
+					width:22px;
+					height:22px;
+				}
+			}
+			&.active a{
+				margin:0;
+				width:22px;
+				height:22px;
+			}
+		}	
+	}	
+}
+.contact-block{
+	overflow:hidden;
+	background:$desert-storm;	
+}
+.contact-holder{
+	overflow:hidden;
+	margin:0 auto;
+	max-width:780px;
+	color:#7fc3d7;
+	text-align:center;
+	padding:53px 0 57px;
+	letter-spacing:-1px;
+	line-height:33px;
+	font:{
+		size:28px;
+	}
+	@include breakpoint($tablet){
+		padding:33px 30px 38px;
+		max-width:100%;
+	}
+	@include breakpoint($big-mobile){
+		line-height:22px;
+		font:{
+			size:20px;
+		}	
+	}
+	@include breakpoint($mobile){
+		padding:20px 10px 23px;	
+		line-height:23px;
+		font:{
+			size:18px;
+		}
+	}
+	span{
+		display:block;
+		text-transform:uppercase;
+		margin:0 0 13px;
+	}
+	.btn{
+		display:inline-block;
+		vertical-align:top;
+		border-radius:20px;
+		text-transform:uppercase;
+		background:#75bad3;
+		color:$white;
+		padding:10px 42px;
+		line-height:18px;
+		font:{
+			size:16px;	
+		}
+		&:hover{
+			text-decoration:none;
+			opacity:0.9;	
+		}	
+	}
+}
+#footer{
+	overflow:hidden;
+	text-align:center;		
+}
+.footer-holder{
+	overflow:hidden;
+	background: #75bad5;
+	background: -moz-linear-gradient(-45deg, #75bad5 0%, #8abbd7 37%, #73bbb9 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#75bad5), color-stop(37%,#8abbd7), color-stop(100%,#73bbb9)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg, #75bad5 0%,#8abbd7 37%,#73bbb9 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg, #75bad5 0%,#8abbd7 37%,#73bbb9 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg, #75bad5 0%,#8abbd7 37%,#73bbb9 100%); /* IE10+ */
+	background: linear-gradient(135deg, #75bad5 0%,#8abbd7 37%,#73bbb9 100%); /* W3C */	
+	.f1{
+		overflow:hidden;
+		margin:0 auto;
+		max-width:800px;
+		padding:46px 0 42px;
+		line-height: 29px;
+		@include breakpoint($tablet){
+			padding:46px 10px 42px;
+			line-height:23px;
+			font:{
+				size:16px;
+			}
+		}
+		@include breakpoint($big-mobile){
+			padding:41px 24px 56px;
+			line-height:28px;	
+		}
+		@include breakpoint($mobile){
+			padding:20px 10px 23px;
+			line-height:17px;
+			font:{
+				size:14px;
+			}
+		}
+	}
+	.title{
+		display:block;
+		margin:0 0 12px;
+		line-height:42px;
+		font:{
+			size:43px;
+			weight:normal;
+		}
+		@include breakpoint($tablet){
+			line-height:31px;
+			font:{
+				size:28px;
+			}	
+		}
+		@include breakpoint($big-mobile){
+			margin:0 0 17px;	
+		}
+		@include breakpoint($mobile){
+			line-height:25px;
+			font:{
+				size:23px;
+			}	
+		}	
+	}
+	p{
+		margin:0;	
+	}
+}
+.footer-frame{
+	overflow:hidden;
+	background:#2c2c2c;
+	.f2{
+		overflow:hidden;
+		margin:0 auto;
+		padding:17px 10px 16px;
+		max-width:1024px;
+		color:$white;
+		line-height:15px;
+		font:{
+			size:12px;	
+		}
+		span{
+			display:block;	
+		}
+		@include breakpoint($big-mobile){
+			padding:20px 10px 16px;	
+		}	
+	}	
+}
