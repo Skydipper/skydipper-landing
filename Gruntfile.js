@@ -314,6 +314,14 @@ var PathConfig = require('./grunt-settings.js');
         concurrency: 4,
         progress: true
       }
+    },
+
+    // gh-pages for deploy
+    'gh-pages': {
+      options: {
+        base: '<%= config.dist %>'
+      },
+      src: ['**/*']
     }
 
   });
@@ -344,6 +352,8 @@ var PathConfig = require('./grunt-settings.js');
 
   //final build
   grunt.registerTask('dist', ['clean:temp', 'cssbeauty']);
+
+  grunt.registerTask('deploy', ['dist', 'imgmin', 'gh-pages']);
 
 };
 

@@ -19,5 +19,3 @@ bower_components
 
 # Ruby
 *.lock
-
-dist/
